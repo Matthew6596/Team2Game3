@@ -26,26 +26,34 @@ public class CombatManager : MonoBehaviour
     }
 
     //Player Actions --- Main buttons
-    public void Fight()
+    public void FightBtn()
     {
         //Fight
+        DoEnemyTurn();
     }
-    public void Defend()
+    public void DefendBtn()
     {
         //Defend
+        DoEnemyTurn();
     }
-    public void Magic()
+    public void MagicBtn()
     {
         //Open magic sub menu?
+        DoEnemyTurn();
     }
-    public void Item()
+    public void ItemBtn()
     {
         if (gm.playerItems.Count > 0)
         {
             //Open item sub menu
         }
     }
+
     //Player Actions --- Sub buttons
+    public void BackBtn()
+    {
+        //Close sub menu
+    }
     public void ConfirmUseItem()
     {
         ItemScript selectedItem = gm.playerItems[itemDrop.value];
@@ -53,11 +61,38 @@ public class CombatManager : MonoBehaviour
         {
             DoItemAction(selectedItem.itemType);
         }
+        DoEnemyTurn();
+    }
+
+    //Enemy Actions
+    void DoEnemyTurn() //enemy ai
+    {
+
+
+        //
+        EndTurn();
     }
 
 
-    //Items - Do Item function
-    public void DoItemAction(ItemType t)
+    //General Stuff
+    void EndTurn()
+    {
+        //Check healths > 0, if not end battle
+        if (enemy.health <= 0)
+        {
+            enemy.health = 0;
+            StartCoroutine(endBattle(false));
+        }
+        else if(gm.playerHp <= 0)
+        {
+            gm.playerHp = 0;
+            StartCoroutine(endBattle(true));
+        }
+
+        //Update hp/mana bars
+
+    }
+    void DoItemAction(ItemType t)
     {
         switch (t)
         {
@@ -66,6 +101,19 @@ public class CombatManager : MonoBehaviour
                 break;
             default: break;
         }
-        //end player turn
+    }
+    IEnumerator endBattle(bool playerWon)
+    {
+        //disable buttons
+        //Show battle over text
+        yield return new WaitForSeconds(2);
+        if (playerWon)
+        {
+            //return to swim
+        }
+        else
+        {
+            //game over
+        }
     }
 }

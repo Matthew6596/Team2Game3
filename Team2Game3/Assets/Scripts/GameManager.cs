@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     private float timeToBeatGame;
     public int playerHp;
     public int playerMana;
+    public int playerAttack;
 
     //Public Variables
     [Space]
