@@ -21,10 +21,13 @@ public class GameManager : MonoBehaviour
     }
 
     //Private Variables
+    [Header("Options")]
     [SerializeField]
     private float timeToBeatGame;
 
     //Public Variables
+    [Space]
+    [Header("For Viewing Only")]
     public List<ItemScript> playerItems = new();
     public bool inCombat;
     public int score;

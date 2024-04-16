@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -58,12 +59,14 @@ public class PlayerMovement : MonoBehaviour
             //Enter combat with enemy
             gm.inCombat = true;
             gm.enemy = collision.gameObject.GetComponent<EnemyScript>();
+            SceneManager.LoadScene("CombatScene"); //TEMP <<< eventually combat scene and swim scene will be same, but in different groups
         }
         else if (collision.CompareTag("Item"))
         {
             //Add item to player inventory
             gm.playerItems.Add(collision.gameObject.GetComponent<ItemScript>());
-            Destroy(collision.gameObject);
+            collision.gameObject.SetActive(false); //Physical item disappears
+            collision.gameObject.transform.SetParent(gm.gameObject.transform); //Item persist through scenes
         }
     }
 
