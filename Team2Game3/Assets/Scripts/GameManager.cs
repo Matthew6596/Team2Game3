@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     [Header("Options")]
     [SerializeField]
     private float timeToBeatGame;
+    public int playerHp;
+    public int playerMana;
 
     //Public Variables
     [Space]
