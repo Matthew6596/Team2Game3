@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     public List<ItemScript> playerItems = new();
     public bool inCombat;
     public int score;
+    public EnemyScript enemy;
 
     //Things to remember when change scene
     public float gameProgress;

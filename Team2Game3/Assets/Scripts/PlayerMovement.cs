@@ -23,11 +23,26 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Input/Player movement
         if (lockXPosition) moveInput = new Vector2(0, moveInput.y);
         velocity += acceleration * moveInput;
+
+        //Player top/bottom bounds
+        if (transform.position.y > 3.5f)
+        {
+            velocity += acceleration*(transform.position.y-3)*Vector2.down;
+        }
+        else if(transform.position.y < -3.5f)
+        {
+            velocity += acceleration*(-transform.position.y - 3)*Vector2.up;
+        }
+        //
+
+        //Max speed and friction
         velocity = Vector2.ClampMagnitude(velocity, maxSpeed);
         velocity *= friction;
 
+        //Move
         transform.Translate(velocity * Time.deltaTime);
     }
 
@@ -41,11 +56,15 @@ public class PlayerMovement : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             //Enter combat with enemy
+            gm.inCombat = true;
+            gm.enemy = collision.gameObject.GetComponent<EnemyScript>();
         }
         else if (collision.CompareTag("Item"))
         {
             //Add item to player inventory
             gm.playerItems.Add(collision.gameObject.GetComponent<ItemScript>());
+            Destroy(collision.gameObject);
         }
     }
+
 }
