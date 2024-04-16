@@ -618,6 +618,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Item
       objectReference: {fileID: 0}
+    - target: {fileID: 3918454673764505584, guid: f108b31119a3d8243967363a003e2ac4, type: 3}
+      propertyPath: itemName
+      value: Fishing Rod
+      objectReference: {fileID: 0}
     - target: {fileID: 5211137402616232658, guid: f108b31119a3d8243967363a003e2ac4, type: 3}
       propertyPath: speed
       value: 3

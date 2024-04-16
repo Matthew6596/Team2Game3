@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class CombatManager : MonoBehaviour
 {
     public TMP_Dropdown itemDrop;
+    public TMP_Text itemDescTxt;
 
     EnemyScript enemy;
 
@@ -17,6 +19,16 @@ public class CombatManager : MonoBehaviour
     {
         gm = GameManager.gm;
         enemy = gm.enemy;
+
+
+        //Set item dropdown values
+        setItemDropdown();
+        //Default item desc text = item 0 desc
+        if(gm.playerItems.Count>0) itemDescTxt.text = gm.playerItems[0].description;
+        //When player select item in dropdown, show item description
+        itemDrop.onValueChanged.AddListener((int val) => {
+            itemDescTxt.text = gm.playerItems[val].description;
+        });
     }
 
     // Update is called once per frame
@@ -114,6 +126,16 @@ public class CombatManager : MonoBehaviour
         else
         {
             //game over
+        }
+    }
+
+    //
+    void setItemDropdown()
+    {
+        itemDrop.options.Clear();
+        foreach(ItemScript item in gm.playerItems)
+        {
+            itemDrop.options.Add(new TMP_Dropdown.OptionData(item.itemName));
         }
     }
 }
