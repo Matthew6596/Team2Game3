@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 12
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -121,7 +121,448 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Dead Large - 48x32_0
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 128
+        width: 192
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1afc7f59dffe32a47890fc9ca7828f96
+      internalID: 280998993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead Large - 48x32_1
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 102
+        width: 31
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 793aa8750ae8df0409c13d17ca4ef96b
+      internalID: -875287873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead Large - 48x32_2
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 100
+        width: 31
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82ac455d34df7f64ca4d5f68b2169fe8
+      internalID: -736967636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead Large - 48x32_3
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 100
+        width: 31
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4ee4bb879a6a66458fb6ccc8b0567a4
+      internalID: -2060900240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead Large - 48x32_4
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 101
+        width: 32
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 121e4c07f66174d4fa6fb3ad88eb8601
+      internalID: -1240163463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead Large - 48x32_5
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 101
+        width: 32
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb48f2d597ce0e24ebb641a6a438dff9
+      internalID: 1211545094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead Large - 48x32_6
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 73
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31995162bb4c9894da1fd09cf9beff48
+      internalID: 527531810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead Large - 48x32_7
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 68
+        width: 42
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b285d8537ae57154ea92ebc40b5d3dec
+      internalID: -1052672578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead Large - 48x32_8
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 68
+        width: 42
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb07fc3de4bd94242a437c8a7f917d6c
+      internalID: 1814414319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead Large - 48x32_9
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 70
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23e90f22af5a4bd4cb218741da1e13b6
+      internalID: 900634161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead Large - 48x32_10
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 71
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0465007da22bc034d9f82e5ace23ed33
+      internalID: 2045271455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead Large - 48x32_11
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 41
+        width: 34
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbaa4419f8144b0479d0da29fb48891e
+      internalID: 1248561226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead Large - 48x32_12
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 36
+        width: 34
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dc2041c7d51bf740b331418ca7f4326
+      internalID: 2040635040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead Large - 48x32_13
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 36
+        width: 34
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d7cf292974fad34ba5480fdc560aba9
+      internalID: -1175701359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead Large - 48x32_14
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 39
+        width: 37
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74e9063e9218a274693a662b1394c784
+      internalID: 1377103197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead Large - 48x32_15
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 39
+        width: 36
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c15b4e7651862cb42bd3a87139094408
+      internalID: 1134366008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead Large - 48x32_16
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 9
+        width: 44
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de234092bf864ae41b0d82832dcde8e9
+      internalID: 340077421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead Large - 48x32_17
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 4
+        width: 44
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3dc467629c2ab148b7d1b44064c7e80
+      internalID: 655647430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead Large - 48x32_18
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 4
+        width: 44
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b31b20879d9caa488d81157fb890f54
+      internalID: -1284539541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead Large - 48x32_19
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 7
+        width: 44
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2e8100d840f27b4aa036d2f4b2cde9f
+      internalID: 526695816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead Large - 48x32_20
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 7
+        width: 44
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2332357a29ed264b94c2c59b3e39c65
+      internalID: -1189894022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +573,28 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Dead Large - 48x32_0: 280998993
+      Dead Large - 48x32_1: -875287873
+      Dead Large - 48x32_10: 2045271455
+      Dead Large - 48x32_11: 1248561226
+      Dead Large - 48x32_12: 2040635040
+      Dead Large - 48x32_13: -1175701359
+      Dead Large - 48x32_14: 1377103197
+      Dead Large - 48x32_15: 1134366008
+      Dead Large - 48x32_16: 340077421
+      Dead Large - 48x32_17: 655647430
+      Dead Large - 48x32_18: -1284539541
+      Dead Large - 48x32_19: 526695816
+      Dead Large - 48x32_2: -736967636
+      Dead Large - 48x32_20: -1189894022
+      Dead Large - 48x32_3: -2060900240
+      Dead Large - 48x32_4: -1240163463
+      Dead Large - 48x32_5: 1211545094
+      Dead Large - 48x32_6: 527531810
+      Dead Large - 48x32_7: -1052672578
+      Dead Large - 48x32_8: 1814414319
+      Dead Large - 48x32_9: 900634161
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
