@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public float acceleration;
     public float maxSpeed;
     public float friction;
+    public bool lockXPosition;
 
     private Vector2 moveInput;
     private Vector2 velocity;
@@ -22,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (lockXPosition) moveInput = new Vector2(0, moveInput.y);
         velocity += acceleration * moveInput;
         velocity = Vector2.ClampMagnitude(velocity, maxSpeed);
         velocity *= friction;
