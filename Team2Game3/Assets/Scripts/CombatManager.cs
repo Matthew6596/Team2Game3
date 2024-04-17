@@ -24,6 +24,7 @@ public class CombatManager : MonoBehaviour
     bool playerDefending=false;
 
     Animator anim;
+    Animator enemyAnim;
 
     GameManager gm;
 
@@ -34,6 +35,7 @@ public class CombatManager : MonoBehaviour
         gm = GameManager.gm;
 
         anim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
+        enemyAnim = gm.enemyObj.GetComponent<Animator>();
         StartBattle();
 
     }
@@ -134,6 +136,7 @@ public class CombatManager : MonoBehaviour
     void DoEnemyTurn() //enemy ai
     {
         anim.SetBool("isAttacking", false);
+        enemyAnim.SetBool("isAttacking", true);
         UpdateBars();
 
         //Check if enemy dead
@@ -176,8 +179,9 @@ public class CombatManager : MonoBehaviour
     //General Stuff
     void EndTurn()
     {
+        enemyAnim.SetBool("isAttacking", false);
         //Check healths > 0, if not end battle
-        if(gm.playerHp <= 0)
+        if (gm.playerHp <= 0)
         {
             StartCoroutine(endBattle(false));
         }
