@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEditor.Progress;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CombatManager : MonoBehaviour
 {
@@ -34,15 +35,29 @@ public class CombatManager : MonoBehaviour
         //When player select item in dropdown, show item description
         itemDrop.onValueChanged.AddListener((int val) => {
             itemDescTxt.text = gm.playerItems[val].description;
+            itemDrop.value = 0;
         });
 
+        magicSubPanel.transform.GetChild(1).gameObject.GetComponent<Button>().enabled = false;
+        if (gm.playerItems.Count > 0)
+        {
+            itemSubPanel.transform.GetChild(1).gameObject.GetComponent<Button>().enabled = true;
+        }
+        MagicScript m = gm.magicOptions[0];
+        magicDescTxt.text = m.description;
         magicDrop.onValueChanged.AddListener((int val) => {
             MagicScript m = gm.magicOptions[val];
             magicDescTxt.text = m.description;
             if (m.manaCost>gm.playerMana)
             {
                 //disable confirm spell btn
+                magicSubPanel.transform.GetChild(1).gameObject.GetComponent<Button>().enabled = false;
             }
+            else
+            {
+                magicSubPanel.transform.GetChild(1).gameObject.GetComponent<Button>().enabled = true;
+            }
+            magicDrop.value = 0;
         });
     }
 
@@ -188,10 +203,13 @@ public class CombatManager : MonoBehaviour
         {
             //return to swim
             gm.IncrementScore(enemy.scoreValue);
+            gm.inCombat = false;
+            SceneManager.LoadScene("SampleScene");
         }
         else
         {
             //game over
+            SceneManager.LoadScene("GameOver");
         }
     }
     void UpdateBars()
