@@ -419,46 +419,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &503696765 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1850503221117976397, guid: f108b31119a3d8243967363a003e2ac4, type: 3}
-  m_PrefabInstance: {fileID: 1437194468546802244}
-  m_PrefabAsset: {fileID: 0}
---- !u!58 &503696770
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 503696765}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!1 &504165846
 GameObject:
   m_ObjectHideFlags: 0
@@ -4514,21 +4474,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Item
       objectReference: {fileID: 0}
-    - target: {fileID: 3918454673764505584, guid: f108b31119a3d8243967363a003e2ac4, type: 3}
-      propertyPath: itemName
-      value: Fishing Rod
-      objectReference: {fileID: 0}
-    - target: {fileID: 5211137402616232658, guid: f108b31119a3d8243967363a003e2ac4, type: 3}
-      propertyPath: speed
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1850503221117976397, guid: f108b31119a3d8243967363a003e2ac4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 503696770}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f108b31119a3d8243967363a003e2ac4, type: 3}
 --- !u!224 &1972349964546099996
 RectTransform:
@@ -5225,6 +5174,10 @@ PrefabInstance:
       propertyPath: progressBar
       value: 
       objectReference: {fileID: 4476292282894959838}
+    - target: {fileID: 7164473030161310940, guid: f7e5c47bd3ab0b24bae06e3d2742aca9, type: 3}
+      propertyPath: timeToBeatGame
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 7883370763081883062, guid: f7e5c47bd3ab0b24bae06e3d2742aca9, type: 3}
       propertyPath: m_Name
       value: GameManager
