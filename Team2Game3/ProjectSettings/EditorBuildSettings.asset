@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CombatScene.unity
     guid: 4812f7788529dda4c8540fa13bde8166
+  - enabled: 1
+    path: Assets/Scenes/GameOverScene.unity
+    guid: 6f4b0fa29c1a1044cae805c3f9554b1a
   m_configObjects: {}
