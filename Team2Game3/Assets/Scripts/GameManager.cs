@@ -13,16 +13,18 @@ public class GameManager : MonoBehaviour
     public static GameManager gm;
     private void Awake()
     {
-        if (Instance == null)
+        /*if (Instance == null)
         {
             Instance = gameObject;
             gm = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
-            Destroy(gameObject);
-        }
+            //Destroy(gameObject);
+        }*/
+        Instance = gameObject;
+        gm = this;
     }
 
     //Private Variables
@@ -39,6 +41,8 @@ public class GameManager : MonoBehaviour
     public Transform progressBar;
     public Transform canvas;
     public GameObject enemyObj;
+    public GameObject combatScene;
+    public GameObject swimScene;
 
     //Public Variables
     [Space]
@@ -115,5 +119,16 @@ public class GameManager : MonoBehaviour
         else if (amt < 100) { txtScore = "00" + score; }
         else if (amt < 1000) { txtScore = "0" + score; }
         scoreTxt.text = txtScore;
+    }
+
+    public void LoadCombat()
+    {
+        combatScene.SetActive(true);
+        swimScene.SetActive(false);
+    }
+    public void LoadSwimming()
+    {
+        combatScene.SetActive(false);
+        swimScene.SetActive(true);
     }
 }

@@ -60,14 +60,16 @@ public class PlayerMovement : MonoBehaviour
             gm.inCombat = true;
             gm.enemy = collision.gameObject.GetComponent<EnemyScript>();
             gm.GetEnemy(collision);
-            SceneManager.LoadScene("CombatScene"); //TEMP <<< eventually combat scene and swim scene will be same, but in different groups
+            gm.LoadCombat();
+            collision.gameObject.SetActive(false);
+            CombatManager.inst.StartBattle();
         }
         else if (collision.CompareTag("Item"))
         {
             //Add item to player inventory
             gm.playerItems.Add(collision.gameObject.GetComponent<ItemScript>());
             collision.gameObject.SetActive(false); //Physical item disappears
-            collision.gameObject.transform.SetParent(gm.gameObject.transform); //Item persist through scenes
+            //collision.gameObject.transform.SetParent(gm.gameObject.transform); //Item persist through scenes
             gm.IncrementScore(100);
         }
     }
