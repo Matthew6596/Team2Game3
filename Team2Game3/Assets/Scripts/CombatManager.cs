@@ -105,10 +105,7 @@ public class CombatManager : MonoBehaviour
     //Enemy Actions
     void DoEnemyTurn() //enemy ai
     {
-        //update player mana bar
-
-        //update enemy hp bar
-        if (enemy.health<=0) enemy.health=0;
+        UpdateBars();
 
         //Check if enemy dead
         if (enemy.health <= 0)
@@ -118,8 +115,29 @@ public class CombatManager : MonoBehaviour
         }
 
         //do enemy ai
+        int rand = Random.Range(0, 100);
+        if (rand >= 50 || enemy.mana <= 0) //enemy attack
+        {
+            if (!playerDefending)
+                gm.playerHp -= enemy.attackPower;
+        }
+        else//enemy magic
+        {
+            int rand2 = Random.Range(0, 100);
+            if (rand2 >= 50)
+            {
+                if (enemy.health < enemy.maxHealth)
+                    enemy.health++;
+            }
+            else
+            {
+                gm.playerMana--;
+                if (gm.playerMana <= 0) gm.playerMana = 0;
+            }
+            enemy.mana--;
+        }
 
-        //update enemy mana bar
+        UpdateBars();
 
         //
         EndTurn();
@@ -136,7 +154,7 @@ public class CombatManager : MonoBehaviour
             StartCoroutine(endBattle(true));
         }
 
-        //Update player hp bar
+        UpdateBars();
 
     }
     void DoItemAction(ItemType t)
@@ -172,6 +190,10 @@ public class CombatManager : MonoBehaviour
         {
             //game over
         }
+    }
+    void UpdateBars()
+    {
+
     }
 
     //
