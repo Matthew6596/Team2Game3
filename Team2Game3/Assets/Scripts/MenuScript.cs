@@ -10,7 +10,8 @@ public class MenuScript : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene(1);
-        GameManager.gm.inCombat = false;
+        if(GameManager.gm!=null)
+            GameManager.gm.inCombat = false;
     }
 
     public void QuitGame()
