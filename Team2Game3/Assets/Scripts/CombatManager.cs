@@ -86,7 +86,6 @@ public class CombatManager : MonoBehaviour
         anim.SetBool("isAttacking", true);
         //Open magic sub menu
         magicSubPanel.SetActive(true);
-        toggleMainBtns(false);
     }
     public void ItemBtn()
     {
