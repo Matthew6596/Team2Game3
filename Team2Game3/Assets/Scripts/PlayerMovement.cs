@@ -59,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
             //Enter combat with enemy
             gm.inCombat = true;
             gm.enemy = collision.gameObject.GetComponent<EnemyScript>();
+            gm.GetEnemy(collision);
             SceneManager.LoadScene("CombatScene"); //TEMP <<< eventually combat scene and swim scene will be same, but in different groups
         }
         else if (collision.CompareTag("Item"))
