@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,9 +6,11 @@ using UnityEngine;
 public class EnemyScript : MonoBehaviour
 {
     //Script for enemy stats / enemy combat stuff
-    int maxHealth;
+    [NonSerialized]
+    public int maxHealth;
     public int health;
-    int maxMana;
+    [NonSerialized]
+    public int maxMana;
     public int mana;
     public int attackPower;
 
@@ -24,5 +27,6 @@ public class EnemyScript : MonoBehaviour
     public void GetAttacked(int amt)
     {
         health -= amt;
+        if(health<=0) health = 0;
     }
 }
