@@ -1658,6 +1658,8 @@ MonoBehaviour:
   magicDrop: {fileID: 460236422}
   itemDescTxt: {fileID: 1486820709}
   magicDescTxt: {fileID: 928395201}
+  magicOptions:
+  - {fileID: 1931654075}
   playerHpBar: {fileID: 3950443610993067448}
   playerManaBar: {fileID: 3950443610993067447}
   enemyHpBar: {fileID: 3950443610993067446}

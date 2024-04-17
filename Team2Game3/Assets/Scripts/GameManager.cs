@@ -35,7 +35,6 @@ public class GameManager : MonoBehaviour
     public int playerMana;
     public int playerMaxMana;
     public int playerAttack;
-    public MagicScript[] magicOptions;
     public Transform progressBar;
     public Transform canvas;
     public GameObject enemyObj;
