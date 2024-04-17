@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Animations;
 
 public class CombatManager : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class CombatManager : MonoBehaviour
 
     bool playerDefending=false;
 
+    Animator anim;
+
     GameManager gm;
 
     // Start is called before the first frame update
@@ -27,6 +30,8 @@ public class CombatManager : MonoBehaviour
         gm = GameManager.gm;
         enemy = gm.enemy;
         gm.enemyObj.transform.position = new Vector3(4.36f, 0.44f, 0);
+
+        anim = gameObject.GetComponent<Animator>();
 
         //Set dropdown values
         setDropdowns();
@@ -65,6 +70,7 @@ public class CombatManager : MonoBehaviour
     public void FightBtn()
     {
         //Fight
+        anim.SetBool("isAttacking", true);
         enemy.GetAttacked(gm.playerAttack);
         DoEnemyTurn();
     }
@@ -76,6 +82,7 @@ public class CombatManager : MonoBehaviour
     }
     public void MagicBtn()
     {
+        anim.SetBool("isAttacking", true);
         //Open magic sub menu
         magicSubPanel.SetActive(true);
         toggleMainBtns(false);
@@ -122,6 +129,7 @@ public class CombatManager : MonoBehaviour
     //Enemy Actions
     void DoEnemyTurn() //enemy ai
     {
+        anim.SetBool("isAttacking", false);
         UpdateBars();
 
         //Check if enemy dead
