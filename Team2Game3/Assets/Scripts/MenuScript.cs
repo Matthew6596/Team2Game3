@@ -10,6 +10,7 @@ public class MenuScript : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene(1);
+        GameManager.gm.inCombat = false;
     }
 
     public void QuitGame()
@@ -20,5 +21,6 @@ public class MenuScript : MonoBehaviour
     public void MainMenu()
     {
         SceneManager.LoadScene(0);
+        GameManager.gm.inCombat = true;
     }
 }
