@@ -32,8 +32,6 @@ public class CombatManager : MonoBehaviour
     {
         inst = this;
         gm = GameManager.gm;
-        
-        //gm.enemyObj.transform.position = new Vector3(4.36f, 0.44f, 0);
 
         anim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
         StartBattle();
@@ -43,6 +41,8 @@ public class CombatManager : MonoBehaviour
     public void StartBattle()
     {
         enemy = gm.enemy;
+        gm.enemyObj.transform.position = new Vector3(4.36f, 0.44f, 0);
+
         //Set dropdown values
         setDropdowns();
         //Default item desc text = item 0 desc
@@ -50,7 +50,6 @@ public class CombatManager : MonoBehaviour
         //When player select item in dropdown, show item description
         itemDrop.onValueChanged.AddListener((int val) => {
             itemDescTxt.text = gm.playerItems[val].description;
-            itemDrop.value = 0;
         });
 
         magicSubPanel.transform.GetChild(1).gameObject.GetComponent<Button>().enabled = false;
@@ -72,7 +71,6 @@ public class CombatManager : MonoBehaviour
             {
                 magicSubPanel.transform.GetChild(1).gameObject.GetComponent<Button>().enabled = true;
             }
-            magicDrop.value = 0;
         });
         UpdateBars();
     }
@@ -119,6 +117,8 @@ public class CombatManager : MonoBehaviour
         if (selectedItem != null)
         {
             DoItemAction(selectedItem.itemType);
+            gm.playerItems.Remove(selectedItem);
+            setDropdowns();
         }
         DoEnemyTurn();
     }
@@ -224,6 +224,7 @@ public class CombatManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         if (playerWon)
         {
+            gm.enemyObj.SetActive(false);
             //return to swim
             gm.IncrementScore(enemy.scoreValue);
             gm.inCombat = false;

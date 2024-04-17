@@ -118,6 +118,7 @@ public class GameManager : MonoBehaviour
         if (amt < 10) { txtScore = "000" + score; }
         else if (amt < 100) { txtScore = "00" + score; }
         else if (amt < 1000) { txtScore = "0" + score; }
+        else { txtScore = score.ToString(); }
         scoreTxt.text = txtScore;
     }
 

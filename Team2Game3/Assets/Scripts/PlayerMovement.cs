@@ -58,10 +58,12 @@ public class PlayerMovement : MonoBehaviour
         {
             //Enter combat with enemy
             gm.inCombat = true;
+            collision.gameObject.transform.SetParent(gm.combatScene.transform);
             gm.enemy = collision.gameObject.GetComponent<EnemyScript>();
+            collision.GetComponent<ObstacleMovement>().enabled = false;
             gm.GetEnemy(collision);
             gm.LoadCombat();
-            collision.gameObject.SetActive(false);
+            //collision.gameObject.SetActive(false);
             CombatManager.inst.StartBattle();
         }
         else if (collision.CompareTag("Item"))
