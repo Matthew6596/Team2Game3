@@ -94,7 +94,6 @@ public class CombatManager : MonoBehaviour
         {
             //Open item sub menu
             itemSubPanel.SetActive(true);
-            toggleMainBtns(false);
         }
     }
 
@@ -104,11 +103,6 @@ public class CombatManager : MonoBehaviour
         //Close sub menu
         magicSubPanel.SetActive(false);
         itemSubPanel.SetActive(false);
-        toggleMainBtns(true);
-    }
-    void toggleMainBtns(bool on)
-    {
-        for(int i=0; i<4; i++) mainBtns[i].SetActive(on);
     }
     public void ConfirmUseItem()
     {
@@ -218,7 +212,7 @@ public class CombatManager : MonoBehaviour
     {
         //disable buttons
         //Show battle over text
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         if (playerWon)
         {
             //return to swim
@@ -229,7 +223,7 @@ public class CombatManager : MonoBehaviour
         else
         {
             //game over
-            SceneManager.LoadScene("GameOver");
+            SceneManager.LoadScene("GameOverScene");
         }
     }
     void UpdateBars()
