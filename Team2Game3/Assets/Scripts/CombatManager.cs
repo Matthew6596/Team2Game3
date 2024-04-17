@@ -81,6 +81,7 @@ public class CombatManager : MonoBehaviour
     public void FightBtn()
     {
         //Fight
+        anim.SetTrigger("attack");
         anim.SetBool("isAttacking", true);
         enemy.GetAttacked(gm.playerAttack);
         DoEnemyTurn();
@@ -137,6 +138,7 @@ public class CombatManager : MonoBehaviour
     {
         anim.SetBool("isAttacking", false);
         enemyAnim.SetBool("isAttacking", true);
+        enemyAnim.SetTrigger("attack");
         UpdateBars();
 
         //Check if enemy dead
