@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum MagicType { placeholdSpell, }
+public enum MagicType { placeholdSpell, FishHeal, }
 public class MagicScript : MonoBehaviour
 {
     public MagicType magicType;
