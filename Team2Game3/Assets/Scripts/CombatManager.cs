@@ -7,10 +7,14 @@ using static UnityEditor.Progress;
 
 public class CombatManager : MonoBehaviour
 {
-    public TMP_Dropdown itemDrop;
-    public TMP_Text itemDescTxt;
+    public GameObject[] mainBtns;
+    public GameObject itemSubPanel, magicSubPanel;
+    public TMP_Dropdown itemDrop,magicDrop;
+    public TMP_Text itemDescTxt,magicDescTxt;
 
     EnemyScript enemy;
+
+    bool playerDefending=false;
 
     GameManager gm;
 
@@ -21,43 +25,51 @@ public class CombatManager : MonoBehaviour
         enemy = gm.enemy;
 
 
-        //Set item dropdown values
-        setItemDropdown();
+        //Set dropdown values
+        setDropdowns();
         //Default item desc text = item 0 desc
         if(gm.playerItems.Count>0) itemDescTxt.text = gm.playerItems[0].description;
         //When player select item in dropdown, show item description
         itemDrop.onValueChanged.AddListener((int val) => {
             itemDescTxt.text = gm.playerItems[val].description;
         });
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        magicDrop.onValueChanged.AddListener((int val) => {
+            MagicScript m = gm.magicOptions[val];
+            magicDescTxt.text = m.description;
+            if (m.manaCost>gm.playerMana)
+            {
+                //disable confirm spell btn
+            }
+        });
     }
 
     //Player Actions --- Main buttons
     public void FightBtn()
     {
         //Fight
+        enemy.GetAttacked(gm.playerAttack);
         DoEnemyTurn();
     }
     public void DefendBtn()
     {
         //Defend
+        playerDefending = true;
         DoEnemyTurn();
     }
     public void MagicBtn()
     {
-        //Open magic sub menu?
-        DoEnemyTurn();
+        //Open magic sub menu
+        magicSubPanel.SetActive(true);
+        toggleMainBtns(false);
     }
     public void ItemBtn()
     {
         if (gm.playerItems.Count > 0)
         {
             //Open item sub menu
+            itemSubPanel.SetActive(true);
+            toggleMainBtns(false);
         }
     }
 
@@ -65,6 +77,13 @@ public class CombatManager : MonoBehaviour
     public void BackBtn()
     {
         //Close sub menu
+        magicSubPanel.SetActive(false);
+        itemSubPanel.SetActive(false);
+        toggleMainBtns(true);
+    }
+    void toggleMainBtns(bool on)
+    {
+        for(int i=0; i<4; i++) mainBtns[i].SetActive(on);
     }
     public void ConfirmUseItem()
     {
@@ -75,11 +94,32 @@ public class CombatManager : MonoBehaviour
         }
         DoEnemyTurn();
     }
+    public void ConfirmUseMagic()
+    {
+        MagicScript selectedSpell = gm.magicOptions[magicDrop.value];
+        gm.playerMana -= selectedSpell.manaCost;
+        DoMagicAction(selectedSpell.magicType);
+        DoEnemyTurn();
+    }
 
     //Enemy Actions
     void DoEnemyTurn() //enemy ai
     {
+        //update player mana bar
 
+        //update enemy hp bar
+        if (enemy.health<=0) enemy.health=0;
+
+        //Check if enemy dead
+        if (enemy.health <= 0)
+        {
+            StartCoroutine(endBattle(false));
+            return;
+        }
+
+        //do enemy ai
+
+        //update enemy mana bar
 
         //
         EndTurn();
@@ -90,18 +130,13 @@ public class CombatManager : MonoBehaviour
     void EndTurn()
     {
         //Check healths > 0, if not end battle
-        if (enemy.health <= 0)
-        {
-            enemy.health = 0;
-            StartCoroutine(endBattle(false));
-        }
-        else if(gm.playerHp <= 0)
+        if(gm.playerHp <= 0)
         {
             gm.playerHp = 0;
             StartCoroutine(endBattle(true));
         }
 
-        //Update hp/mana bars
+        //Update player hp bar
 
     }
     void DoItemAction(ItemType t)
@@ -109,6 +144,16 @@ public class CombatManager : MonoBehaviour
         switch (t)
         {
             case (ItemType.FishingRod):
+
+                break;
+            default: break;
+        }
+    }
+    void DoMagicAction(MagicType t)
+    {
+        switch (t)
+        {
+            case (MagicType.placeholdSpell):
 
                 break;
             default: break;
@@ -130,12 +175,17 @@ public class CombatManager : MonoBehaviour
     }
 
     //
-    void setItemDropdown()
+    void setDropdowns()
     {
         itemDrop.options.Clear();
         foreach(ItemScript item in gm.playerItems)
         {
             itemDrop.options.Add(new TMP_Dropdown.OptionData(item.itemName));
+        }
+        magicDrop.options.Clear();
+        foreach (MagicScript spell in gm.magicOptions)
+        {
+            magicDrop.options.Add(new TMP_Dropdown.OptionData(spell.spellName));
         }
     }
 }

@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     public int playerHp;
     public int playerMana;
     public int playerAttack;
+    public MagicScript[] magicOptions;
 
     //Public Variables
     [Space]
