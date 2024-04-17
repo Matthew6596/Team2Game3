@@ -62,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
             gm.GetEnemy(collision);
             gm.LoadCombat();
             collision.gameObject.SetActive(false);
+            CombatManager.inst.StartBattle();
         }
         else if (collision.CompareTag("Item"))
         {

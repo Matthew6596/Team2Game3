@@ -9,6 +9,8 @@ using UnityEngine.Animations;
 
 public class CombatManager : MonoBehaviour
 {
+    public static CombatManager inst;
+
     public GameObject[] mainBtns;
     public GameObject itemSubPanel, magicSubPanel;
     public TMP_Dropdown itemDrop,magicDrop;
@@ -28,16 +30,23 @@ public class CombatManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        inst = this;
         gm = GameManager.gm;
-        enemy = gm.enemy;
+        
         //gm.enemyObj.transform.position = new Vector3(4.36f, 0.44f, 0);
 
         anim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
+        StartBattle();
 
+    }
+
+    public void StartBattle()
+    {
+        enemy = gm.enemy;
         //Set dropdown values
         setDropdowns();
         //Default item desc text = item 0 desc
-        if(gm.playerItems.Count>0) itemDescTxt.text = gm.playerItems[0].description;
+        if (gm.playerItems.Count > 0) itemDescTxt.text = gm.playerItems[0].description;
         //When player select item in dropdown, show item description
         itemDrop.onValueChanged.AddListener((int val) => {
             itemDescTxt.text = gm.playerItems[val].description;
@@ -54,7 +63,7 @@ public class CombatManager : MonoBehaviour
         magicDrop.onValueChanged.AddListener((int val) => {
             MagicScript m = magicOptions[val];
             magicDescTxt.text = m.description;
-            if (m.manaCost>gm.playerMana)
+            if (m.manaCost > gm.playerMana)
             {
                 //disable confirm spell btn
                 magicSubPanel.transform.GetChild(1).gameObject.GetComponent<Button>().enabled = false;
@@ -65,6 +74,7 @@ public class CombatManager : MonoBehaviour
             }
             magicDrop.value = 0;
         });
+        UpdateBars();
     }
 
     //Player Actions --- Main buttons
