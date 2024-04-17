@@ -217,7 +217,7 @@ public class CombatManager : MonoBehaviour
             //return to swim
             gm.IncrementScore(enemy.scoreValue);
             gm.inCombat = false;
-            SceneManager.LoadScene("SampleScene");
+            gm.LoadSwimming();
         }
         else
         {
