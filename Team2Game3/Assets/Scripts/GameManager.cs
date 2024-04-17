@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 using static UnityEngine.UI.Image;
@@ -44,6 +45,7 @@ public class GameManager : MonoBehaviour
     public bool inCombat;
     public int score;
     public EnemyScript enemy;
+    public TMP_Text scoreTxt;
 
     //Things to remember when change scene
     public float gameProgress;
@@ -94,5 +96,15 @@ public class GameManager : MonoBehaviour
     public void GetEnemy(Collider2D collision)
     {
         enemyObj = collision.gameObject;
+    }
+
+    public void IncrementScore(int amt)
+    {
+        score += amt;
+        string txtScore = score.ToString();
+        if (amt < 10) { txtScore = "000" + score; }
+        else if (amt < 100) { txtScore = "00" + score; }
+        else if (amt < 1000) { txtScore = "0" + score; }
+        scoreTxt.text = txtScore;
     }
 }
