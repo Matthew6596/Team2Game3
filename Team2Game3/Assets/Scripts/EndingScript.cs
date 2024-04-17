@@ -7,6 +7,8 @@ public class EndingScript : MonoBehaviour
 {
     static public EndingScript inst;
 
+    public GameObject endUI;
+
     public Transform player;
     public Transform badShark;
     public Transform fishyWifey;
@@ -63,8 +65,9 @@ public class EndingScript : MonoBehaviour
         if (sequence >= 1)
         {
             fishyWifey.position = Vector3.MoveTowards(fishyWifey.position, goodLocations[0].position, wifeySpd*Time.deltaTime);
-            StartTimedAction(() => { 
-                //Instatiate heart 
+            StartTimedAction(() => {
+                //Instatiate heart and show end button
+                endUI.SetActive(true);
             }, 1, 1);
         }
     }
