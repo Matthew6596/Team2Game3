@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class EndingScript : MonoBehaviour
 {
@@ -28,11 +29,18 @@ public class EndingScript : MonoBehaviour
 
     bool[] timedActionDone;
 
+    Animator wifeyAnim;
+    Animator sharkAnim;
+
     // Start is called before the first frame update
     void Start()
     {
         inst = this;
-        timedActionDone = new bool[2];
+        timedActionDone = new bool[3];
+
+        //Anim
+        wifeyAnim = GameObject.Find("wife").gameObject.GetComponent<Animator>();
+        sharkAnim = GameObject.Find("shark").gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -73,7 +81,26 @@ public class EndingScript : MonoBehaviour
     }
     void BadEndSequence()
     {
-
+        if (sequence >= 0)
+        {
+            player.position = Vector3.MoveTowards(player.position, playerLocations[0].position, playerSpd * Time.deltaTime);
+            StartTimedAction(() => { sequence++; }, 1, 0);
+        }
+        if (sequence >= 1)
+        {
+            fishyWifey.position = Vector3.MoveTowards(fishyWifey.position, badLocations[0].position, wifeySpd * Time.deltaTime);
+            wifeyAnim.SetTrigger("badEnding");
+            StartTimedAction(() => {sequence++; }, 1, 1);
+        }
+        if (sequence >= 2)
+        {
+            badShark.position = Vector3.MoveTowards(badShark.position, badLocations[1].position, sharkSpd * Time.deltaTime);
+            sharkAnim.SetBool("isAttacking", true);
+            StartTimedAction(() => {
+                //Instatiate heart and show end button
+                endUI.SetActive(true);
+            }, 1, 2);
+        }
     }
 
     void StartTimedAction(Action act, float delay, int id)
