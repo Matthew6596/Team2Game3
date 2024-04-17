@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using static UnityEngine.UI.Image;
 
@@ -73,6 +74,13 @@ public class GameManager : MonoBehaviour
             if (gameProgress > timeToBeatGame)
             {
                 EndGame();
+            }
+        }
+        else
+        {
+            if(playerHp <= 0)
+            {
+                SceneManager.LoadScene("GameOverScene");
             }
         }
     }
