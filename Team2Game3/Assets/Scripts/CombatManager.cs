@@ -129,7 +129,7 @@ public class CombatManager : MonoBehaviour
         //Check if enemy dead
         if (enemy.health <= 0)
         {
-            StartCoroutine(endBattle(false));
+            StartCoroutine(endBattle(true));
             return;
         }
 
@@ -169,7 +169,7 @@ public class CombatManager : MonoBehaviour
         //Check healths > 0, if not end battle
         if(gm.playerHp <= 0)
         {
-            StartCoroutine(endBattle(true));
+            StartCoroutine(endBattle(false));
         }
 
         UpdateBars();
