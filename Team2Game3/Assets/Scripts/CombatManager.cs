@@ -13,6 +13,7 @@ public class CombatManager : MonoBehaviour
     public GameObject itemSubPanel, magicSubPanel;
     public TMP_Dropdown itemDrop,magicDrop;
     public TMP_Text itemDescTxt,magicDescTxt;
+    public MagicScript[] magicOptions;
 
     public Transform playerHpBar,playerManaBar,enemyHpBar,enemyManaBar;
 
@@ -48,10 +49,10 @@ public class CombatManager : MonoBehaviour
         {
             itemSubPanel.transform.GetChild(1).gameObject.GetComponent<Button>().enabled = true;
         }
-        MagicScript m = gm.magicOptions[0];
+        MagicScript m = magicOptions[0];
         magicDescTxt.text = m.description;
         magicDrop.onValueChanged.AddListener((int val) => {
-            MagicScript m = gm.magicOptions[val];
+            MagicScript m = magicOptions[val];
             magicDescTxt.text = m.description;
             if (m.manaCost>gm.playerMana)
             {
@@ -120,7 +121,7 @@ public class CombatManager : MonoBehaviour
     }
     public void ConfirmUseMagic()
     {
-        MagicScript selectedSpell = gm.magicOptions[magicDrop.value];
+        MagicScript selectedSpell = magicOptions[magicDrop.value];
         gm.playerMana -= selectedSpell.manaCost;
         DoMagicAction(selectedSpell.magicType);
         DoEnemyTurn();
@@ -243,7 +244,7 @@ public class CombatManager : MonoBehaviour
             itemDrop.options.Add(new TMP_Dropdown.OptionData(item.itemName));
         }
         magicDrop.options.Clear();
-        foreach (MagicScript spell in gm.magicOptions)
+        foreach (MagicScript spell in magicOptions)
         {
             magicDrop.options.Add(new TMP_Dropdown.OptionData(spell.spellName));
         }
