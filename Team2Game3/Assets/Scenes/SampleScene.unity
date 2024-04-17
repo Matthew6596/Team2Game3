@@ -5334,20 +5334,32 @@ PrefabInstance:
       objectReference: {fileID: 971092890}
     - target: {fileID: 7164473030161310940, guid: f7e5c47bd3ab0b24bae06e3d2742aca9, type: 3}
       propertyPath: playerHp
-      value: 10
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7164473030161310940, guid: f7e5c47bd3ab0b24bae06e3d2742aca9, type: 3}
       propertyPath: scoreTxt
       value: 
       objectReference: {fileID: 4532965392851131958}
     - target: {fileID: 7164473030161310940, guid: f7e5c47bd3ab0b24bae06e3d2742aca9, type: 3}
+      propertyPath: playerMana
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7164473030161310940, guid: f7e5c47bd3ab0b24bae06e3d2742aca9, type: 3}
       propertyPath: playerMaxHp
-      value: 10
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7164473030161310940, guid: f7e5c47bd3ab0b24bae06e3d2742aca9, type: 3}
       propertyPath: progressBar
       value: 
       objectReference: {fileID: 4476292282894959838}
+    - target: {fileID: 7164473030161310940, guid: f7e5c47bd3ab0b24bae06e3d2742aca9, type: 3}
+      propertyPath: playerAttack
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7164473030161310940, guid: f7e5c47bd3ab0b24bae06e3d2742aca9, type: 3}
+      propertyPath: playerMaxMana
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7164473030161310940, guid: f7e5c47bd3ab0b24bae06e3d2742aca9, type: 3}
       propertyPath: timeToBeatGame
       value: 40

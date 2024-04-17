@@ -30,9 +30,9 @@ public class CombatManager : MonoBehaviour
     {
         gm = GameManager.gm;
         enemy = gm.enemy;
-        gm.enemyObj.transform.position = new Vector3(4.36f, 0.44f, 0);
+        //gm.enemyObj.transform.position = new Vector3(4.36f, 0.44f, 0);
 
-        anim = gameObject.GetComponent<Animator>();
+        anim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
 
         //Set dropdown values
         setDropdowns();
