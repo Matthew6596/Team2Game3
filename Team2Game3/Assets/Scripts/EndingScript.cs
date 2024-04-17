@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Animations;
 
@@ -9,6 +10,9 @@ public class EndingScript : MonoBehaviour
     static public EndingScript inst;
 
     public GameObject endUI;
+    
+    //Score
+    public TMP_Text endScoreTxt;
 
     public Transform player;
     public Transform badShark;
@@ -32,11 +36,15 @@ public class EndingScript : MonoBehaviour
     Animator wifeyAnim;
     Animator sharkAnim;
 
+    GameManager gm;
+
     // Start is called before the first frame update
     void Start()
     {
         inst = this;
         timedActionDone = new bool[3];
+
+        gm = GameManager.gm;
 
         //Anim
         wifeyAnim = GameObject.Find("wife").gameObject.GetComponent<Animator>();
@@ -46,6 +54,8 @@ public class EndingScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        endScoreTxt.text = gm.scoreTxt.text;
+
         if (began)
         {
             if(goodEnding)
