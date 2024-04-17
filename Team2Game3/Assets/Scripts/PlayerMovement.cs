@@ -68,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
             gm.playerItems.Add(collision.gameObject.GetComponent<ItemScript>());
             collision.gameObject.SetActive(false); //Physical item disappears
             collision.gameObject.transform.SetParent(gm.gameObject.transform); //Item persist through scenes
+            gm.IncrementScore(100);
         }
     }
 

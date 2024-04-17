@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3280814024057797018}
   - component: {fileID: 7164473030161310940}
+  - component: {fileID: 2507799041955942071}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -44,10 +45,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25aefc7b21d088e4a844861a3aba9d38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToBeatGame: 0
+  timeToBeatGame: 10
+  goodEndingScoreMinimum: 0
+  playerHp: 0
+  playerMana: 0
+  playerAttack: 0
+  magicOptions: []
+  progressBar: {fileID: 0}
+  canvas: {fileID: 0}
+  enemyObj: {fileID: 0}
   playerItems: []
   inCombat: 0
   score: 0
   enemy: {fileID: 0}
+  scoreTxt: {fileID: 0}
   gameProgress: 0
   playerPosition: {x: 0, y: 0}
+--- !u!114 &2507799041955942071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7883370763081883062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b17df1d36de862c4587df5d00cd30552, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  badShark: {fileID: 0}
+  fishyWifey: {fileID: 0}
+  playerLocations:
+  - {fileID: 0}
+  badLocations: []
+  goodLocations:
+  - {fileID: 0}
+  playerSpd: 2
+  sharkSpd: 0
+  wifeySpd: 5

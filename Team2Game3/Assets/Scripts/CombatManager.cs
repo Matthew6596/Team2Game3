@@ -185,6 +185,7 @@ public class CombatManager : MonoBehaviour
         if (playerWon)
         {
             //return to swim
+            gm.IncrementScore(enemy.scoreValue);
         }
         else
         {
