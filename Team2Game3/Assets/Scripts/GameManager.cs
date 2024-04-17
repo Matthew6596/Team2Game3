@@ -31,7 +31,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private int goodEndingScoreMinimum;
     public int playerHp;
+    public int playerMaxHp;
     public int playerMana;
+    public int playerMaxMana;
     public int playerAttack;
     public MagicScript[] magicOptions;
     public Transform progressBar;

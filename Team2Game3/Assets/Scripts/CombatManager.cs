@@ -12,6 +12,8 @@ public class CombatManager : MonoBehaviour
     public TMP_Dropdown itemDrop,magicDrop;
     public TMP_Text itemDescTxt,magicDescTxt;
 
+    public Transform playerHpBar,playerManaBar,enemyHpBar,enemyManaBar;
+
     EnemyScript enemy;
 
     bool playerDefending=false;
@@ -119,7 +121,7 @@ public class CombatManager : MonoBehaviour
         if (rand >= 50 || enemy.mana <= 0) //enemy attack
         {
             if (!playerDefending)
-                gm.playerHp -= enemy.attackPower;
+                AttackPlayer(enemy.attackPower);
         }
         else//enemy magic
         {
@@ -150,7 +152,6 @@ public class CombatManager : MonoBehaviour
         //Check healths > 0, if not end battle
         if(gm.playerHp <= 0)
         {
-            gm.playerHp = 0;
             StartCoroutine(endBattle(true));
         }
 
@@ -171,8 +172,9 @@ public class CombatManager : MonoBehaviour
     {
         switch (t)
         {
-            case (MagicType.placeholdSpell):
-
+            case (MagicType.placeholdSpell):break;
+            case (MagicType.FishHeal):
+                HealPlayer(2);
                 break;
             default: break;
         }
@@ -194,7 +196,16 @@ public class CombatManager : MonoBehaviour
     }
     void UpdateBars()
     {
-
+        UpdateBar(playerHpBar, gm.playerHp);
+        UpdateBar(playerManaBar, gm.playerMana);
+        UpdateBar(enemyHpBar, enemy.health);
+        UpdateBar(enemyManaBar, enemy.mana);
+    }
+    void UpdateBar(Transform bar, int amt)
+    {
+        int barLen = bar.childCount/2;
+        for(int i=barLen; i<barLen*2; i++)bar.GetChild(i).gameObject.SetActive(false);
+        for (int i = barLen; i < barLen + amt; i++) bar.GetChild(i).gameObject.SetActive(true);
     }
 
     //
@@ -210,5 +221,16 @@ public class CombatManager : MonoBehaviour
         {
             magicDrop.options.Add(new TMP_Dropdown.OptionData(spell.spellName));
         }
+    }
+
+    public void AttackPlayer(int amt)
+    {
+        gm.playerHp -= amt;
+        if (gm.playerHp <= 0) gm.playerHp = 0;
+    }
+    public void HealPlayer(int amt)
+    {
+        gm.playerHp += amt;
+        if (gm.playerHp >= gm.playerMaxHp) gm.playerHp = gm.playerMaxHp;
     }
 }
