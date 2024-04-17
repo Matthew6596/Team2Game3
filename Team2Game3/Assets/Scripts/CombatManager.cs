@@ -187,7 +187,15 @@ public class CombatManager : MonoBehaviour
         switch (t)
         {
             case (ItemType.FishingRod):
-
+                enemy.GetAttacked(1);
+                enemy.LoseMana(1);
+                gm.playerMana++;
+                if(gm.playerMana>gm.playerMaxMana)gm.playerMana=gm.playerMaxMana;
+                break;
+            case (ItemType.KelpSandwich):
+                HealPlayer(1);
+                gm.playerMana+=2;
+                if (gm.playerMana > gm.playerMaxMana) gm.playerMana = gm.playerMaxMana;
                 break;
             default: break;
         }
@@ -199,6 +207,9 @@ public class CombatManager : MonoBehaviour
             case (MagicType.placeholdSpell):break;
             case (MagicType.FishHeal):
                 HealPlayer(2);
+                break;
+            case (MagicType.BubbleGun):
+                enemy.GetAttacked(gm.playerAttack * 2);
                 break;
             default: break;
         }

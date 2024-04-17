@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ItemType { FishingRod,}
+public enum ItemType { FishingRod,KelpSandwich}
 
 public class ItemScript : MonoBehaviour
 {
