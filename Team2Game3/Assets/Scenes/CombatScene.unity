@@ -1708,6 +1708,7 @@ MonoBehaviour:
   magicDescTxt: {fileID: 928395201}
   magicOptions:
   - {fileID: 1931654075}
+  - {fileID: 216713496}
   playerHpBar: {fileID: 3950443610993067448}
   playerManaBar: {fileID: 3950443610993067447}
   enemyHpBar: {fileID: 3950443610993067446}
