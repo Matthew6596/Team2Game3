@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static UnityEngine.UI.Image;
 
 public class GameManager : MonoBehaviour
 {
@@ -34,6 +35,7 @@ public class GameManager : MonoBehaviour
     public MagicScript[] magicOptions;
     public Transform progressBar;
     public Transform canvas;
+    public GameObject enemyObj;
 
     //Public Variables
     [Space]
@@ -87,5 +89,10 @@ public class GameManager : MonoBehaviour
             canvas.Translate(Time.deltaTime * uiSpd * Vector3.Distance(canvas.localPosition, Vector3.up * 100) * Vector3.up);
             yield return null;
         }
+    }
+
+    public void GetEnemy(Collider2D collision)
+    {
+        enemyObj = collision.gameObject;
     }
 }
