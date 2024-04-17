@@ -35,7 +35,6 @@ public class CombatManager : MonoBehaviour
         gm = GameManager.gm;
 
         anim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
-        enemyAnim = gm.enemyObj.GetComponent<Animator>();
         StartBattle();
 
     }
@@ -43,6 +42,7 @@ public class CombatManager : MonoBehaviour
     public void StartBattle()
     {
         enemy = gm.enemy;
+        enemyAnim = gm.enemyObj.GetComponent<Animator>();
         gm.enemyObj.transform.position = new Vector3(4.36f, 0.44f, 0);
 
         //Set dropdown values
