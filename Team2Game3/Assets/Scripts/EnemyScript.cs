@@ -13,6 +13,7 @@ public class EnemyScript : MonoBehaviour
     public int maxMana;
     public int mana;
     public int attackPower;
+    public int scoreValue;
 
     SpriteRenderer render;
 
