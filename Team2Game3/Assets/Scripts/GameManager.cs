@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     public bool inCombat;
     public int score;
     public EnemyScript enemy;
+    public GameObject enemyObj;
 
     //Things to remember when change scene
     public float gameProgress;
@@ -53,4 +54,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //Get Enemy
+    public void GetEnemy(Collider2D collision)
+    {
+        enemyObj = collision.gameObject;
+    }
 }

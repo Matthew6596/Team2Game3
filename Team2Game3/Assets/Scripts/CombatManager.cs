@@ -23,7 +23,7 @@ public class CombatManager : MonoBehaviour
     {
         gm = GameManager.gm;
         enemy = gm.enemy;
-
+        gm.enemyObj.transform.position = new Vector3(4.36f, 0.44f, 0);
 
         //Set dropdown values
         setDropdowns();
